@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ساکورا برای روژی 🌸</title>
+<style>
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;box-sizing:border-box;font-family:Tahoma,sans-serif;background:linear-gradient(145deg,#fff3f7,#f9d5e5,#eadcff);color:#854666;text-align:center;overflow-x:hidden}
+.card{max-width:380px;width:100%;padding:25px 20px;background:#ffffffdc;border-radius:28px;box-shadow:0 15px 45px #b96b9233;box-sizing:border-box}
+h1{color:#c65c8a}.env{font-size:100px;cursor:pointer;animation:float 2s infinite}
+#letter{display:none;line-height:2.3;background:#fff5fa;border:1px solid #f6d0e1;padding:18px;border-radius:18px;animation:show .7s}
+@keyframes float{50%{transform:translateY(-9px) rotate(-4deg)}}
+@keyframes show{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.petal{position:fixed;top:-35px;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+</style>
+</head>
+<body>
+<main class="card">
+<div style="font-size:38px">🌸 🌸 🌸</div>
+<p>یه نامه زیر شکوفه‌های ساکورا...</p>
+<div class="env" onclick="openLetter()">💌</div>
+<p id="hint">برای باز کردن نامه روی پاکت بزن</p>
+<section id="letter">
+<h1>روژی جان، روز دخترت مبارک! 🌸</h1>
+<p>امیدوارم روزهات مثل بهار از راه برسن؛ پر از رنگ‌های تازه، نسیم آروم و اتفاق‌هایی که بی‌هوا لبخند میارن روی لبت.</p>
+<p>شکوفه‌های ساکورا زود می‌گذرن، اما زیبایی‌شون توی دل می‌مونه.</p>
+<p>امیدوارم آرزوهات یکی‌یکی شکوفه بدن، دلت همیشه آروم باشه و زندگیت پر از لحظه‌های قشنگ بشه. 🦋</p>
+<h3>به لطافت شکوفه‌های گیلاس، روزت قشنگ! 💗</h3>
+</section>
+</main>
+<script>
+function openLetter(){
+document.getElementById('letter').style.display='block';
+document.getElementById('hint').style.display='none';
+document.querySelector('.env').style.display='none';
+for(let i=0;i<28;i++){
+let p=document.createElement('span');
+p.className='petal';p.textContent=['🌸','🌸','🌷'][i%3];
+p.style.left=Math.random()*100+'vw';
+p.style.animationDuration=(5+Math.random()*6)+'s';
+p.style.animationDelay=Math.random()*3+'s';
+document.body.appendChild(p);
+setTimeout(()=>p.remove(),12000);
+}
+}
+</script>
+</body>
+</html>
